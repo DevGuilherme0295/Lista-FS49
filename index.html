@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino JavaScript</title>
+</head>
+<body>
+    <h3>1ª Questão Par ou Ímpar</h3>
+    <input id="parOuImpar" type="number" placeholder="Digite um número">
+    <button onclick="parImpar()">Clique Aqui</button>
+    <p></p>
+    <p id="result1"></p>
+    <h3>2ª Maior Dois Números</h3>
+    <input id="n1" type="number">
+    <input id="n2" type="number">
+    <p></p>
+    <button onclick="maiorEntreTodos()">Clique Aqui</button>
+    <p id="result2"></p>
+    <h3>3ª Positivo, Negativo ou Zero</h3>
+    <input id="posOuNeg" type="number">
+    <button onclick="posNegZero()">Clique Aqui</button>
+    <p id="result3"></p>
+    <h3>4ª Pode tirar carteira de motorista?</h3>
+    <input id="idade" type="number">
+    <button onclick="carteiraMoto()">Clique Aqui</button>
+    <p id="result4"></p>
+    <h3>5ª Maior dos Três Números</h3>
+    <input id="numer1" type="number">
+    <input id="numer2" type="number">
+    <input id="numer3" type="number">
+    <p></p>
+    <button onclick="maiorDosTres()">Clique Aqui</button>
+    <p id="result5"></p>
+    <h3>6ª Múltiplo de 3 ou de 5</h3>
+    <input id="multip35" type="number">
+    <button onclick="multiplo3Ou5">Clique Aqui</button>
+    <p id="result6"></p>
+
+    <script>
+        //1ª Questão Par ou Ímpar
+        function parImpar() {
+            if(parOuImpar.value %2 === 0){
+                result1.innerHTML = `O número ${parOuImpar.value} é par`
+                }else{
+                result1.innerHTML = `O número ${parOuImpar.value} é ímpar`
+            }
+        }
+        //2ª Questão Maior entre toods
+        function maiorEntreTodos(){
+            if(n1<n2){
+                result2.innerHTML = `O maior entre esses números é ${n1.value}`
+            }else{
+                result2.innerHTML = `O maior entre esses números é ${n2.value}`
+            }
+        }
+        //3ª Questão Positivo, Negativo ou Zero
+        function posNegZero(){
+            if(posOuNeg.value > 0){
+                result3.innerHTML = `O número ${posOuNeg.value} é POSITIVO`
+            }
+            if(posOuNeg.value < 0){
+                result3.innerHTML = `O número ${posOuNeg.value} é NEGATIVO`
+            }
+            if(posOuNeg.value === 0){
+                result3.innerHTML = `Vocé digitou o número "0" como resposta`
+            }
+        }
+        //4ª Questão Pode tirar carteira de motorista?
+        function carteiraMoto(){
+            if(idade.value < 18){
+                result4.innerHTML = `O usuário ainda não pode tirar a carteira de motorista`
+            }else{
+                result4.innerHTML = `O usuário pode tirar a carteira de motorista`
+            }
+        }
+        //5ª Questão Maior entre 3 Números
+        function maiorDosTres() {
+            const num1 = parseFloat(document.getElementById('numer1').value);
+            const num2 = parseFloat(document.getElementById('numer2').value);
+            const num3 = parseFloat(document.getElementById('numer3').value);
+
+            const maior = Math.max(num1, num2, num3);
+            document.getElementById('result5').innerText = `Maior número: ${maior}`;
+        }
+        //6ª Questão Múltiplo de 3 e 5
+        function multiplo3Ou5(){
+            const numero = 
+            if(multip35.value %3 === 0 && multip35.value %5 === 0){
+                result6.innerHTML = `O ${multip35} é multiplo dos dois números`
+            }
+            if(multip35 %3 !== 0 && multip35 %5 === 0){
+                result6.innerHTML = `O ${multip35} é multiplo somente do 5`
+            }
+            if(multip35 %5 !== 0 && multip35 %3 === 0){
+                result6.innerHTML = `O ${multip35} é multiplo somente do 3`
+            }
+            if(multip35 %5 !== 0 && multip35 %3 !== 0){
+                result6.innerHTML = `O ${multip35} não é multiplo de nenhum dos dois números`
+            }
+            
+        }
+            
+        
+    </script>
+</body>
+</html>
