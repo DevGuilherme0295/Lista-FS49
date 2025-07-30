@@ -34,7 +34,7 @@
     <p id="result5"></p>
     <h3>6ª Múltiplo de 3 ou de 5</h3>
     <input id="multip35" type="number">
-    <button onclick="multiplo3Ou5">Clique Aqui</button>
+    <button onclick="multiplo3Ou5()">Clique Aqui</button>
     <p id="result6"></p>
 
     <script>
@@ -85,19 +85,22 @@
         }
         //6ª Questão Múltiplo de 3 e 5
         function multiplo3Ou5(){
-            const numero = 
-            if(multip35.value %3 === 0 && multip35.value %5 === 0){
-                result6.innerHTML = `O ${multip35} é multiplo dos dois números`
-            }
-            if(multip35 %3 !== 0 && multip35 %5 === 0){
-                result6.innerHTML = `O ${multip35} é multiplo somente do 5`
-            }
-            if(multip35 %5 !== 0 && multip35 %3 === 0){
-                result6.innerHTML = `O ${multip35} é multiplo somente do 3`
-            }
-            if(multip35 %5 !== 0 && multip35 %3 !== 0){
-                result6.innerHTML = `O ${multip35} não é multiplo de nenhum dos dois números`
-            }
+            const numero = parseInt(document.getElementById('multip35').value)
+            const resultado = document.getElementById('result6')
+            if (isNaN(numero)) {
+        resultado.innerText = 'Digite um número válido!';
+        return;
+      }
+
+      if (numero % 3 === 0 && numero % 5 === 0) {
+        resultado.innerText = `O número ${numero} é múltiplo de 3 e 5`;
+      } else if (numero % 5 === 0) {
+        resultado.innerText = `O número ${numero} é múltiplo apenas de 5`;
+      } else if (numero % 3 === 0) {
+        resultado.innerText = `O número ${numero} é múltiplo apenas de 3`;
+      } else {
+        resultado.innerText = `O número ${numero} não é múltiplo de 3 nem de 5`;
+      }
             
         }
             
