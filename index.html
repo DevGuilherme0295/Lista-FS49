@@ -59,8 +59,8 @@
     <button onclick="verificar()">Verificar</button>
     <p id="result11"></p>
     <h3>15ª Par e Maior que 50</h3>
-    <input id="num" type="text">
-    <button onclick="">Verificar</button>
+    <input id="num" type="number">
+    <button onclick="parMaior50()">Verificar</button>
     <p id="result15"></p>
 
 
@@ -193,6 +193,8 @@
                 result15.innerHTML = `O número é ímpar e maior que 50`
             }else if(num %2 !== 0 && num < 50){
                 result15.innerHTML = `O número é ímpar e menor que 50`
+            }else if(num === 50){
+                result15.innerHTML = `O número é par e IGUAL a 50`
             }
         }
 
