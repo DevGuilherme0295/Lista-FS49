@@ -8,34 +8,61 @@
 <body>
     <h3>1ª Questão Par ou Ímpar</h3>
     <input id="parOuImpar" type="number" placeholder="Digite um número">
-    <button onclick="parImpar()">Clique Aqui</button>
+    <button onclick="parImpar()">Verificar</button>
     <p></p>
     <p id="result1"></p>
     <h3>2ª Maior Dois Números</h3>
     <input id="n1" type="number">
     <input id="n2" type="number">
     <p></p>
-    <button onclick="maiorEntreTodos()">Clique Aqui</button>
+    <button onclick="maiorEntreTodos()">Verificar</button>
     <p id="result2"></p>
     <h3>3ª Positivo, Negativo ou Zero</h3>
     <input id="posOuNeg" type="number">
-    <button onclick="posNegZero()">Clique Aqui</button>
+    <button onclick="posNegZero()">Verificar</button>
     <p id="result3"></p>
     <h3>4ª Pode tirar carteira de motorista?</h3>
     <input id="idade" type="number">
-    <button onclick="carteiraMoto()">Clique Aqui</button>
+    <button onclick="carteiraMoto()">Verificar</button>
     <p id="result4"></p>
     <h3>5ª Maior dos Três Números</h3>
     <input id="numer1" type="number">
     <input id="numer2" type="number">
     <input id="numer3" type="number">
     <p></p>
-    <button onclick="maiorDosTres()">Clique Aqui</button>
+    <button onclick="maiorDosTres()">Verificar</button>
     <p id="result5"></p>
-    <h3>6ª Múltiplo de 3 ou de 5</h3>
+    <h3>7ª Múltiplo de 3 ou de 5</h3>
     <input id="multip35" type="number">
-    <button onclick="multiplo3Ou5()">Clique Aqui</button>
+    <button onclick="multiplo3Ou5()">Verificar</button>
     <p id="result6"></p>
+    <h3>8ª Validação de Senha</h3>
+    <input id="senha8" type="text">
+    <button onclick="validacao()">Verificar</button>
+    <p id="result8"></p>
+    <h3>9ª Calculadora Simples</h3>
+    <input id="n19" type="number">
+    <input id="n29" type="number">
+    <p></p>
+    <button onclick="calcSoma()">+</button>
+    <button onclick="calcSubtracao()">-</button>
+    <button onclick="calcMultiplicacao()">*</button>
+    <button onclick="calcDivisao()">/</button>
+    <p id="result9"></p>
+    <h3>10ª Ano Bissexto</h3>
+    <input id="ano" type="text" placeholder="Digite o ano">
+    <button onclick="verificaBissexto()">Verificar</button>
+    <p id="result10"></p>
+    <h3>11ª Nomes Iguais</h3>
+    <input id="nome1" type="text">
+    <input id="nome2" type="text">
+    <button onclick="verificar()">Verificar</button>
+    <p id="result11"></p>
+    <h3>15ª Par e Maior que 50</h3>
+    <input id="num" type="text">
+    <button onclick="">Verificar</button>
+    <p id="result15"></p>
+
 
     <script>
         //1ª Questão Par ou Ímpar
@@ -83,7 +110,7 @@
             const maior = Math.max(num1, num2, num3);
             document.getElementById('result5').innerText = `Maior número: ${maior}`;
         }
-        //6ª Questão Múltiplo de 3 e 5
+        //7ª Questão Múltiplo de 3 e 5
         function multiplo3Ou5(){
             const numero = parseInt(document.getElementById('multip35').value)
             const resultado = document.getElementById('result6')
@@ -100,11 +127,76 @@
         resultado.innerText = `O número ${numero} é múltiplo apenas de 3`;
       } else {
         resultado.innerText = `O número ${numero} não é múltiplo de 3 nem de 5`;
-      }
-            
+      }      
         }
-            
-        
+        //8ª Questão Validação de Senha
+        function validacao(){
+            const senha = document.getElementById('senha8').value
+            const resposta8 = document.getElementById('result8')
+            if(senha === "1234"){   
+                resposta8.innerHTML = `Acesso permitido.`
+            }else{ resposta8.innerHTML = `Acesso negado.`}
+        }
+        //9ª Questão Calculadora Simples
+        function calcSoma(){
+            const numero1 = parseInt(document.getElementById('n19').value)
+            const numero2 = parseInt(document.getElementById('n29').value)
+            result9.innerHTML =  numero1 + numero2
+        }
+        function calcSubtracao(){
+            const numero1 = parseInt(document.getElementById('n19').value)
+            const numero2 = parseInt(document.getElementById('n29').value)
+            result9.innerHTML =  numero1 - numero2
+        }
+        function calcMultiplicacao(){
+            const numero1 = parseInt(document.getElementById('n19').value)
+            const numero2 = parseInt(document.getElementById('n29').value)
+            result9.innerHTML =  numero1 * numero2
+        }
+        function calcDivisao(){
+            const numero1 = parseInt(document.getElementById('n19').value)
+            const numero2 = parseInt(document.getElementById('n29').value)
+            result9.innerHTML =  numero1 / numero2
+        }
+        //10ª Questão Ano Bissexto
+        function verificaBissexto() {
+            const ano = parseInt(document.getElementById('ano').value);
+            const resposta = document.getElementById('result10');
+
+            if (isNaN(ano)) {
+              resposta.innerText = 'Digite um ano válido!';
+              return;
+            }
+
+            if ((ano % 4 === 0 && ano % 100 !== 0) || ano % 400 === 0) {
+              resposta.innerText = `O ano ${ano} é bissexto.`;
+            } else {
+              resposta.innerText = `O ano ${ano} não é bissexto.`;
+            }
+  }
+        //11ª Questão Os nomes são iguais ou diferentes?
+        function verificar(){
+            const nome1 = document.getElementById('nome1').value
+            const nome2 = document.getElementById('nome2').value
+            if(nome1 === nome2){
+                result11.innerHTML = `Os nomes são iguais`
+            }else{result11.innerHTML = `Os nomes são diferentes`}
+        }
+        //15ª Questão Número par e maior que 50
+        function parMaior50(){
+            const num = parseInt(document.getElementById('num').value)
+            if(num %2 === 0 && num > 50){
+                result15.innerHTML = `O número é par e maior que 50`
+            }else if(num %2 === 0 && num < 50){
+                result15.innerHTML = `O número é par e menor que 50`
+            }else if(num %2 !== 0 && num > 50){
+                result15.innerHTML = `O número é ímpar e maior que 50`
+            }else if(num %2 !== 0 && num < 50){
+                result15.innerHTML = `O número é ímpar e menor que 50`
+            }
+        }
+
+
     </script>
 </body>
 </html>
