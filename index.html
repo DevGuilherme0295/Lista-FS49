@@ -29,7 +29,6 @@
     <input id="numer1" type="number">
     <input id="numer2" type="number">
     <input id="numer3" type="number">
-    <p></p>
     <button onclick="maiorDosTres()">Verificar</button>
     <p id="result5"></p>
     <h3>7ª Múltiplo de 3 ou de 5</h3>
@@ -62,7 +61,15 @@
     <input id="num" type="number">
     <button onclick="parMaior50()">Verificar</button>
     <p id="result15"></p>
-
+    <h3>16ª Desconto na Compra</h3>
+    <input id="desc" type="text">
+    <button onclick="desconto()">Verificar</button>
+    <p id="result16"></p>
+    <h3>17ª Aprovado ou Reprovado</h3>
+    <input id="nota1" type="number">
+    <input id="nota2" type="number">
+    <button onclick="nota()">Verificar</button>
+    <p id="result17"></p>
 
     <script>
         //1ª Questão Par ou Ímpar
@@ -197,6 +204,35 @@
                 result15.innerHTML = `O número é par e IGUAL a 50`
             }
         }
+        //16ª Questão Desconto na Compra
+        function desconto(){
+            const desc = parseInt(document.getElementById('desc').value)
+
+            if(isNaN(desc)){
+                result16.innerHTML = `Digite um número válido.`
+                
+                }else if(desc > 100){
+                    result16.innerHTML = `Você recebeu um desconto de 10% e você pagará ${desc*0.9}`
+                }else if(desc > 50){
+                    result16.innerHTML = `Você recebeu um desconto de 5% e você pagará ${desc*0.95}`
+                }else {
+                    result16.innerHTML = `Você não recebeu desconto e pagará o valor cheio sendo ele ${desc}`
+                }
+            
+        }
+        //17 Questão Aprovado ou Reprovado
+        function nota(){
+            const nota1 = parseInt(document.getElementById('nota1').value)
+            const nota2 = parseInt(document.getElementById('nota2').value)
+            const media = (nota1+nota2)/2
+
+            if(media >= 7){
+                result17.innerHTML = `Você foi aprovado com a média de ${media}`
+            }else{
+                result17.innerHTML = `Você foi reprovado com a média de ${media}`
+            }
+        }
+        
 
 
     </script>
